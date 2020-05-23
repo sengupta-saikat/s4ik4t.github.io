@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migrating from JUnit | testng</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/assets/css/0.styles.6b7e16bd.css" as="style"><link rel="preload" href="/assets/js/app.f48e910a.js" as="script"><link rel="preload" href="/assets/js/2.3f48e32c.js" as="script"><link rel="preload" href="/assets/js/7.c1d860d2.js" as="script"><link rel="prefetch" href="/assets/js/3.d17061e7.js"><link rel="prefetch" href="/assets/js/4.c2690716.js"><link rel="prefetch" href="/assets/js/5.87df4a3c.js"><link rel="prefetch" href="/assets/js/6.72253740.js"><link rel="prefetch" href="/assets/js/8.25b74620.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6b7e16bd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">testng</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  Download
+</a></div><div class="nav-item"><a href="https://javadoc.jitpack.io/com/github/cbeust/testng/master/javadoc/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaDoc
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s4ik4t/testng-team.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/s4ik4t/testng-docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  Download
+</a></div><div class="nav-item"><a href="https://javadoc.jitpack.io/com/github/cbeust/testng/master/javadoc/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaDoc
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/s4ik4t/testng-team.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/s4ik4t/testng-docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/" aria-current="page" class="sidebar-link">Home</a></li><li><a href="/download.html" class="sidebar-link">Downloading TestNG</a></li><li><a href="/migrating.html" aria-current="page" class="active sidebar-link">Migrating from JUnit</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/migrating.html#migrating-from-junit" class="sidebar-link">Migrating from JUnit</a></li></ul></li><li><a href="/selenium.html" class="sidebar-link">Selenium Integration</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="migrating-from-junit"><a href="#migrating-from-junit" class="header-anchor">#</a> Migrating from JUnit</h2> <h3 id="using-eclipse"><a href="#using-eclipse" class="header-anchor">#</a> Using Eclipse</h3> <p>The easiest way to convert your JUnit tests to TestNG is to use the Eclipse TestNG plug-in refactoring support. You will find a full description of its features in the <a href="/eclipse.html#eclipse-quickfix">Eclipse section</a>.</p> <h3 id="asserts"><a href="#asserts" class="header-anchor">#</a> Asserts</h3> <p>Note that the class org.testng.Assert uses a different argument ordering than the ones used by JUnit. If you are porting code that uses JUnit's asserts, you might want to us a static import of that class:</p> <p>import static org.testng.AssertJUnit.*;</p> <h3 id="running-junit-tests"><a href="#running-junit-tests" class="header-anchor">#</a> Running JUnit Tests</h3> <p>TestNG can automatically recognize and run JUnit tests, so you can use TestNG as a runner for all your existing tests and write new tests using TestNG.</p> <p>All you have to do is to put JUnit library on the TestNG classpath, so it can find and use JUnit classes, change your test runner from JUnit to TestNG in Ant and then run TestNG in &quot;mixed&quot; mode. This way you can have all your tests in the same project, even in the same package, and start using TestNG. This approach also allows you to convert your existing JUnit tests to TestNG incrementally.</p> <h4 id="example-replacing-junit-ant-task-with-testng-one"><a href="#example-replacing-junit-ant-task-with-testng-one" class="header-anchor">#</a> Example - replacing JUnit Ant task with TestNG one</h4> <p>JUnit version:</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;junit dir=&quot;${work.dir}&quot; errorproperty=&quot;tests.failed&quot; failureproperty=&quot;tests.failed&quot; fork=&quot;true&quot;&gt;
+    &lt;batchtest todir=&quot;${build.test.results.dir}&quot;&gt;
+        &lt;fileset dir=&quot;${test.src.dir}&quot;&gt;
+            &lt;include name=&quot;\*\*/\*Test.\*&quot;/&gt;
+    &lt;/batchtest&gt;
+    &lt;classpath&gt;
+        &lt;path path=&quot;${run.test.classpath}&quot;/&gt;
+    &lt;/classpath&gt;
+    &lt;syspropertyset&gt;
+        &lt;propertyref prefix=&quot;test-sys-prop.&quot;/&gt;
+        &lt;mapper from=&quot;test-sys-prop.\*&quot; to=&quot;\*&quot; type=&quot;glob&quot;/&gt;
+    &lt;/syspropertyset&gt;
+    &lt;formatter type=&quot;xml&quot;/&gt;
+    &lt;jvmarg value=&quot;-ea&quot;/&gt;
+    &lt;jvmarg line=&quot;${run.jvmargs}&quot;/&gt;
+&lt;/junit&gt;
+</code></pre></div><p>TestNG version:</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;taskdef name=&quot;testng&quot; classname=&quot;org.testng.TestNGAntTask&quot; classpath=&quot;${run.test.classpath}&quot;/&gt;
+
+&lt;fileset id=&quot;mixed.tests&quot; dir=&quot;${test.src.dir}&quot;&gt;
+    &lt;include name=&quot;\*\*/\*Test.\*&quot;/&gt;
+&lt;/fileset&gt;
+
+&lt;testng mode=&quot;mixed&quot; classfilesetref=&quot;mixed.tests&quot; workingDir=&quot;${work.dir}&quot; failureProperty=&quot;tests.failed&quot; outputdir=&quot;${build.test.results.dir}&quot;&gt;
+    &lt;classpath&gt;
+        &lt;pathelement path=&quot;${build.test.classes.dir}&quot;/&gt;
+        &lt;pathelement path=&quot;${run.test.classpath}&quot;/&gt;
+        &lt;pathelement path=&quot;${junit.lib}&quot;/&gt;
+    &lt;/classpath&gt;
+    &lt;propertyset&gt;
+        &lt;propertyref prefix=&quot;test-sys-prop.&quot;/&gt;
+        &lt;mapper from=&quot;test-sys-prop.\*&quot; to=&quot;\*&quot; type=&quot;glob&quot;/&gt;
+    &lt;/propertyset&gt;
+    &lt;jvmarg line=&quot;${run.jvmargs}&quot;/&gt;
+&lt;/testng&gt;
+</code></pre></div><h3 id="related-reading"><a href="#related-reading" class="header-anchor">#</a> Related reading</h3> <ul><li><a href="https://www.opengamma.com/blog/2011/04/04/converting-opengamma-junit-testng" target="_blank" rel="noopener noreferrer">Here is the detailed report of a company that successfully converted a large codebase of JUnit 4 tests over to TestNG<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</li> <li><a href="https://wiki.netbeans.org/TestNG_MixedMode" target="_blank" rel="noopener noreferrer">Mixed mode in TestNG<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/23/2020, 6:18:57 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/download.html" class="prev">
+        Downloading TestNG
+      </a></span> <span class="next"><a href="/selenium.html">
+        Selenium Integration
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f48e910a.js" defer></script><script src="/assets/js/2.3f48e32c.js" defer></script><script src="/assets/js/7.c1d860d2.js" defer></script>
+  </body>
+</html>
