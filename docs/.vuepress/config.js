@@ -4,7 +4,7 @@ module.exports = {
     themeConfig: {
         lastUpdated: 'Last Updated',
         smoothScroll: true,
-        repo: 's4ik4t/testng-docs',
+        repo: 's4ik4t/s4ik4t.github.io',
         sidebar: [
             '/',
             '/download',
