@@ -6,6 +6,7 @@ module.exports = {
         smoothScroll: true,
         repo: 's4ik4t/s4ik4t.github.io',
         editLinks: true,
+        docsBranch: 'develop',
         sidebar: [
             '/',
             '/download',
