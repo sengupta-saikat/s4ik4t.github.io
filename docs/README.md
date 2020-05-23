@@ -1,5 +1,6 @@
 ---
 home: true
+heroImage: /testng.png
 heroText: TestNG
 tagline: The new un-official website ;)
 actionText: Get Started →
