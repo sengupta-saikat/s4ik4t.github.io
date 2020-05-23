@@ -5,6 +5,7 @@ module.exports = {
         lastUpdated: 'Last Updated',
         smoothScroll: true,
         repo: 's4ik4t/s4ik4t.github.io',
+        editLinks: true,
         sidebar: [
             '/',
             '/download',
