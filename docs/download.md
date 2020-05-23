@@ -25,7 +25,7 @@ Download Current Release and Beta Versions
     </dependency>
 
 #### Gradle
-
+```
 repositories {
     jcenter()
 }
@@ -33,17 +33,17 @@ repositories {
 dependencies {
     testCompile 'org.testng:testng:6.10'
 }
-
+```
 ### Snapshots
 
 TestNG [automatically uploads snapshots to Sonatype](https://oss.sonatype.org/content/repositories/snapshots/org/testng/testng/) which you can access by adding the following repository:
-
+```
 repositories {
     maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
     }
 }
-
+```
 ### Eclipse plug-in
 
 **Java 1.7+ is required** for running the TestNG for Eclipse plugin.
@@ -71,11 +71,11 @@ You can also install older versions of the plug-ins [here](https://beust.com/ecl
 ### Build TestNG from source code
 
 TestNG is also [hosted on GitHub](https://github.com/cbeust/testng), where you can download the source and build the distribution yourself:
-
+```
 $ git clone git://github.com/cbeust/testng.git
 $ cd testng
 $ ./build-with-gradle
-
+```
 You will then find the jar file in the target directory
 
 ### Build the TestNG Eclipse Plugin from source code
