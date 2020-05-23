@@ -15,7 +15,6 @@ module.exports = {
             { text: 'Home', link: '/' },
             { text: 'Download', link: '/download/' },
             { text: 'JavaDoc', link: 'https://javadoc.jitpack.io/com/github/cbeust/testng/master/javadoc/' },
-            { text: 'GitHub', link: 'https://github.com/s4ik4t/testng-team.github.io' }
         ]
     }
 }
